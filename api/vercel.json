@@ -3,12 +3,16 @@
     "api/verify.js": {
       "memory": 128,
       "maxDuration": 10
+    },
+    "api/index.js": {
+      "memory": 128,
+      "maxDuration": 10
     }
   },
   "rewrites": [
     {
       "source": "/verify",
-      "destination": "/index.html"
+      "destination": "/api/index"
     }
   ]
 }
