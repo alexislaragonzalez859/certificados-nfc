@@ -6,122 +6,123 @@ export default function handler(req, res) {
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Verificar Autenticidad — Autodoping</title>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Oswald:wght@300;400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:#000;font-family:'Oswald',sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:1rem}
-.wrap{background:#0a0a0a;width:100%;max-width:420px;padding:2rem 1.5rem;border:0.5px solid #222;border-radius:12px}
-.logo{text-align:center;margin-bottom:1.5rem}
-.logo-text{font-size:28px;font-weight:700;color:#fff;letter-spacing:2px;text-transform:uppercase}
-.logo-sub{font-size:11px;color:#666;letter-spacing:4px;text-transform:uppercase;margin-top:4px}
-hr{border:none;border-top:1px solid #222;margin:1rem 0}
-.screen{display:none}.screen.active{display:block}
-.status-card{border:1px solid #222;border-radius:12px;padding:1.5rem;margin-bottom:1rem;text-align:center}
-.status-title{font-size:22px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:0.5rem}
-.status-sub{font-size:13px;color:#888;letter-spacing:1px;text-transform:uppercase}
-.info-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:0.5px solid #1a1a1a}
+body{background:#000;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:1rem}
+.wrap{width:100%;max-width:390px;min-height:100vh;position:relative;overflow:hidden;background:#1a1a1a}
+.bg-img{position:fixed;top:0;left:50%;transform:translateX(-50%);width:100%;max-width:390px;height:100%;object-fit:cover;opacity:0.85;z-index:0}
+.overlay{position:fixed;top:0;left:50%;transform:translateX(-50%);width:100%;max-width:390px;height:100%;background:linear-gradient(to bottom,rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.1) 30%,rgba(0,0,0,0.65) 55%,rgba(0,0,0,0.97) 75%);z-index:1}
+.content{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;padding:32px 24px 40px}
+.brand-name{font-family:'UnifrakturMaguntia',cursive;font-size:28px;color:#fff;letter-spacing:2px;text-align:center}
+.brand-sub{font-family:'Oswald',sans-serif;font-size:9px;color:#aaa;letter-spacing:5px;text-transform:uppercase;margin-top:4px;text-align:center}
+.divider{width:60%;height:0.5px;background:rgba(255,255,255,0.2);margin:14px auto}
+.shirt-wrap{width:260px;height:260px;display:flex;align-items:center;justify-content:center;margin:0 auto}
+.shirt-img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 20px 50px rgba(0,0,0,0.9));animation:float 4s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.cert-badge{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:5px;text-transform:uppercase;color:#c8a96e;margin:16px 0 4px;text-align:center}
+.cert-name{font-family:'Oswald',sans-serif;font-size:20px;color:#fff;text-align:center;font-weight:400;letter-spacing:1px}
+.cert-owner{font-family:'Oswald',sans-serif;font-size:9px;color:#777;letter-spacing:3px;text-transform:uppercase;margin:4px 0 16px;text-align:center}
+.info-card{width:100%;background:rgba(0,0,0,0.55);border:0.5px solid rgba(255,255,255,0.1);border-radius:10px;padding:12px 18px;margin-bottom:14px}
+.info-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:0.5px solid rgba(255,255,255,0.06)}
 .info-row:last-child{border-bottom:none}
-.info-label{font-size:11px;color:#666;letter-spacing:2px;text-transform:uppercase}
-.info-value{font-size:14px;color:#fff}
-.owner-badge{background:#111;border:1px solid #333;border-radius:8px;padding:1rem;margin:1rem 0;display:flex;align-items:center;gap:12px}
-.owner-avatar{width:40px;height:40px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#000;flex-shrink:0}
-.owner-name{font-size:16px;color:#fff;font-weight:700;letter-spacing:1px}
-.owner-label{font-size:10px;color:#666;letter-spacing:2px;text-transform:uppercase;margin-top:2px}
-.form-group{margin-bottom:1rem}
-.form-label{font-size:11px;color:#888;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;display:block}
-.form-input{width:100%;background:#111;border:1px solid #333;border-radius:8px;padding:12px 14px;color:#fff;font-family:'Oswald',sans-serif;font-size:15px;outline:none}
-.form-input:focus{border-color:#fff}
-.form-hint{font-size:11px;color:#555;margin-top:4px;letter-spacing:1px}
-.btn{width:100%;padding:14px;border:1px solid #fff;background:transparent;color:#fff;font-family:'Oswald',sans-serif;font-size:14px;font-weight:700;letter-spacing:3px;text-transform:uppercase;border-radius:8px;cursor:pointer;margin-top:0.5rem}
-.btn:hover{background:#fff;color:#000}
-.alert-box{background:#0d0d0d;border:1px solid #333;border-radius:12px;padding:1.5rem;text-align:center;margin-bottom:1rem}
-.alert-code{font-size:32px;font-weight:700;color:#fff;letter-spacing:6px;background:#111;border:1px dashed #444;border-radius:8px;padding:1rem;margin:1rem 0}
-.alert-warning{font-size:12px;color:#ff4444;letter-spacing:1px;text-transform:uppercase;margin-top:0.5rem}
-.no-uid{text-align:center;padding:2rem 0}
-.no-uid-text{font-size:14px;color:#666;letter-spacing:1px;text-transform:uppercase;line-height:1.8}
-.whatsapp-btn{width:100%;padding:14px;background:#128C7E;border:none;color:#fff;font-family:'Oswald',sans-serif;font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;border-radius:8px;cursor:pointer;margin-top:0.5rem;display:flex;align-items:center;justify-content:center;gap:8px}
+.info-label{font-family:'Oswald',sans-serif;font-size:10px;color:#666;letter-spacing:2px;text-transform:uppercase}
+.info-value{font-family:'Oswald',sans-serif;font-size:13px;color:#ddd}
+.wa-btn{width:100%;padding:14px;background:#c8a96e;border:none;color:#000;font-family:'Oswald',sans-serif;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;border-radius:8px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px}
+.wa-hint{font-family:'Oswald',sans-serif;font-size:9px;color:#555;text-align:center;letter-spacing:1px;text-transform:uppercase;margin-top:8px}
+.screen{display:none}.screen.active{display:flex;flex-direction:column;align-items:center;width:100%}
+.form-group{width:100%;margin-bottom:12px}
+.form-label{font-family:'Oswald',sans-serif;font-size:10px;color:#888;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;display:block}
+.form-input{width:100%;background:rgba(0,0,0,0.6);border:0.5px solid rgba(255,255,255,0.15);border-radius:8px;padding:12px 14px;color:#fff;font-family:'Oswald',sans-serif;font-size:15px;outline:none}
+.form-input:focus{border-color:rgba(200,169,110,0.6)}
+.form-hint{font-family:'Oswald',sans-serif;font-size:10px;color:#555;margin-top:4px;letter-spacing:1px}
+.btn{width:100%;padding:14px;border:0.5px solid #c8a96e;background:transparent;color:#c8a96e;font-family:'Oswald',sans-serif;font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;border-radius:8px;cursor:pointer;margin-top:4px}
+.btn:hover{background:#c8a96e;color:#000}
+.alert-box{width:100%;background:rgba(0,0,0,0.7);border:0.5px solid rgba(200,169,110,0.3);border-radius:12px;padding:1.5rem;text-align:center;margin-bottom:1rem}
+.alert-code{font-family:'Oswald',sans-serif;font-size:28px;font-weight:700;color:#c8a96e;letter-spacing:6px;background:rgba(0,0,0,0.5);border:1px dashed rgba(200,169,110,0.4);border-radius:8px;padding:1rem;margin:1rem 0}
+.status-card{width:100%;background:rgba(0,0,0,0.55);border:0.5px solid rgba(255,255,255,0.1);border-radius:12px;padding:1.5rem;text-align:center;margin-bottom:1rem}
+.no-uid-text{font-family:'Oswald',sans-serif;font-size:13px;color:#666;letter-spacing:2px;text-transform:uppercase;line-height:1.8;text-align:center;margin-top:1rem}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <div class="logo">
-    <div class="logo-text">⬛ Autodoping</div>
-    <div class="logo-sub">Verificación de autenticidad</div>
-  </div>
-  <hr>
-  <div id="screen-loading" class="screen active" style="text-align:center;padding:2rem 0">
-    <i class="ti ti-loader" style="font-size:32px;color:#444"></i>
-    <p style="color:#666;font-size:12px;letter-spacing:2px;text-transform:uppercase;margin-top:1rem">Verificando chip...</p>
-  </div>
-  <div id="screen-no-uid" class="screen">
-    <div class="no-uid">
-      <i class="ti ti-nfc" style="font-size:48px;color:#333"></i>
-      <p class="no-uid-text" style="margin-top:1rem">Escanea el chip NFC<br>de tu prenda para continuar</p>
+  <img class="bg-img" src="https://cdn.shopify.com/s/files/1/0969/7850/1923/files/ChatGPT_Image_7_may_2026_02_05_58_p.m..png?v=1778183919" alt="">
+  <div class="overlay"></div>
+  <div class="content">
+    <div class="brand-name">Autodoping</div>
+    <div class="brand-sub">Verificación de autenticidad</div>
+    <div class="divider"></div>
+
+    <div id="screen-loading" class="screen active" style="margin-top:2rem">
+      <i class="ti ti-loader" style="font-size:32px;color:#444"></i>
+      <p style="font-family:'Oswald',sans-serif;color:#666;font-size:11px;letter-spacing:2px;text-transform:uppercase;margin-top:1rem">Verificando...</p>
     </div>
-  </div>
-  <div id="screen-not-found" class="screen">
-    <div class="status-card" style="border-color:#8B0000">
-      <i class="ti ti-circle-x" style="font-size:48px;color:#ff4444"></i>
-      <div class="status-title" style="color:#ff4444;margin-top:1rem">No autenticado</div>
-      <div class="status-sub">Este chip no está registrado</div>
+
+    <div id="screen-no-uid" class="screen">
+      <i class="ti ti-nfc" style="font-size:48px;color:#444;margin-top:2rem"></i>
+      <p class="no-uid-text">Escanea el chip NFC<br>de tu prenda para continuar</p>
     </div>
-    <p style="font-size:12px;color:#555;text-align:center;letter-spacing:1px;line-height:1.6">Compra únicamente en canales oficiales de Autodoping.</p>
-  </div>
-  <div id="screen-register" class="screen">
-    <div class="status-card" style="border-color:#333;margin-bottom:1.5rem">
-      <i class="ti ti-shield-check" style="font-size:48px;color:#fff"></i>
-      <div class="status-title" style="margin-top:1rem">Prenda auténtica</div>
-      <div class="status-sub">Registra tu certificado</div>
-    </div>
-    <div class="form-group">
-      <label class="form-label">Tu nombre completo</label>
-      <input type="text" class="form-input" id="input-name" placeholder="Ej. Carlos Ramírez">
-    </div>
-    <div class="form-group">
-      <label class="form-label">Crear código de transferencia</label>
-      <input type="text" class="form-input" id="input-code1" placeholder="Crea un código secreto">
-      <p class="form-hint">Lo necesitarás si quieres revender esta prenda.</p>
-    </div>
-    <div class="form-group">
-      <label class="form-label">Confirmar código</label>
-      <input type="text" class="form-input" id="input-code2" placeholder="Repite tu código">
-    </div>
-    <button class="btn" onclick="registerCert()">Registrar certificado</button>
-  </div>
-  <div id="screen-code-reveal" class="screen">
-    <div class="alert-box">
-      <i class="ti ti-alert-triangle" style="font-size:32px;color:#ff4444"></i>
-      <p style="font-size:13px;color:#fff;letter-spacing:1px;text-transform:uppercase;margin-top:1rem;font-weight:700">⚠️ Toma captura ahora</p>
-      <p style="font-size:11px;color:#666;margin-top:0.5rem;letter-spacing:1px">Esta es la única vez que verás tu código</p>
-      <div class="alert-code" id="reveal-code">———</div>
-      <p class="alert-warning">Sin este código no podemos ayudarte en soporte</p>
-    </div>
-    <button class="btn" onclick="showCertificate()">Ya tomé captura, continuar</button>
-  </div>
-  <div id="screen-certified" class="screen">
-    <div class="status-card" style="border-color:#1a3a1a">
-      <i class="ti ti-rosette-discount-check" style="font-size:48px;color:#4CAF50"></i>
-      <div class="status-title" style="color:#4CAF50;margin-top:1rem">Certificado</div>
-      <div class="status-sub">Prenda 100% auténtica de Autodoping</div>
-    </div>
-    <div class="owner-badge">
-      <div class="owner-avatar" id="cert-avatar">AU</div>
-      <div>
-        <div class="owner-name" id="cert-name">—</div>
-        <div class="owner-label">Dueño del certificado</div>
+
+    <div id="screen-not-found" class="screen">
+      <div class="status-card" style="border-color:rgba(139,0,0,0.5);margin-top:1rem">
+        <i class="ti ti-circle-x" style="font-size:40px;color:#ff4444"></i>
+        <p style="font-family:'Oswald',sans-serif;font-size:18px;font-weight:700;letter-spacing:2px;color:#ff4444;margin-top:1rem">No autenticado</p>
+        <p style="font-family:'Oswald',sans-serif;font-size:11px;color:#666;letter-spacing:1px;text-transform:uppercase;margin-top:4px">Este chip no está registrado</p>
       </div>
+      <p style="font-family:'Oswald',sans-serif;font-size:11px;color:#555;text-align:center;letter-spacing:1px;line-height:1.8">Compra únicamente en canales oficiales de Autodoping.</p>
     </div>
-    <div style="background:#0d0d0d;border:0.5px solid #1a1a1a;border-radius:8px;padding:1rem;margin-bottom:1rem">
-      <div class="info-row"><span class="info-label">Diseño</span><span class="info-value" id="cert-diseno">—</span></div>
-      <div class="info-row"><span class="info-label">Talla</span><span class="info-value" id="cert-talla">—</span></div>
-      <div class="info-row"><span class="info-label">Serie</span><span class="info-value" id="cert-serie">—</span></div>
+
+    <div id="screen-register" class="screen" style="width:100%">
+      <div class="shirt-wrap"><img class="shirt-img" src="https://cdn.shopify.com/s/files/1/0969/7850/1923/files/preview.webp?v=1778183897" alt="Forever Together"></div>
+      <div class="status-card" style="margin-top:1rem">
+        <i class="ti ti-shield-check" style="font-size:36px;color:#c8a96e"></i>
+        <p style="font-family:'Oswald',sans-serif;font-size:18px;font-weight:700;letter-spacing:2px;color:#fff;margin-top:8px">Prenda auténtica</p>
+        <p style="font-family:'Oswald',sans-serif;font-size:10px;color:#888;letter-spacing:2px;text-transform:uppercase;margin-top:4px">Registra tu certificado</p>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Tu nombre completo</label>
+        <input type="text" class="form-input" id="input-name" placeholder="Ej. Carlos Ramírez">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Crear código de transferencia</label>
+        <input type="text" class="form-input" id="input-code1" placeholder="Crea un código secreto">
+        <p class="form-hint">Lo necesitarás si quieres revender esta prenda.</p>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Confirmar código</label>
+        <input type="text" class="form-input" id="input-code2" placeholder="Repite tu código">
+      </div>
+      <button class="btn" onclick="registerCert()">Registrar certificado</button>
     </div>
-    <button class="whatsapp-btn" onclick="openWhatsApp()">
-      <i class="ti ti-brand-whatsapp" style="font-size:20px"></i>
-      Transferir certificado — $100
-    </button>
-    <p style="font-size:10px;color:#444;text-align:center;letter-spacing:1px;margin-top:8px;text-transform:uppercase">Necesitarás tu código de transferencia</p>
+
+    <div id="screen-code-reveal" class="screen">
+      <div class="alert-box" style="margin-top:1rem">
+        <i class="ti ti-alert-triangle" style="font-size:32px;color:#c8a96e"></i>
+        <p style="font-family:'Oswald',sans-serif;font-size:13px;color:#fff;letter-spacing:1px;text-transform:uppercase;margin-top:1rem;font-weight:700">Toma captura ahora</p>
+        <p style="font-family:'Oswald',sans-serif;font-size:10px;color:#666;margin-top:0.5rem;letter-spacing:1px">Esta es la única vez que verás tu código</p>
+        <div class="alert-code" id="reveal-code">———</div>
+        <p style="font-family:'Oswald',sans-serif;font-size:10px;color:#ff4444;letter-spacing:1px;text-transform:uppercase">Sin este código no podemos ayudarte en soporte</p>
+      </div>
+      <button class="btn" onclick="showCertificate()">Ya tomé captura, continuar</button>
+    </div>
+
+    <div id="screen-certified" class="screen">
+      <div class="shirt-wrap"><img class="shirt-img" src="https://cdn.shopify.com/s/files/1/0969/7850/1923/files/preview.webp?v=1778183897" alt="Forever Together"></div>
+      <div class="cert-badge">✦ Certificado ✦</div>
+      <div class="cert-name" id="cert-name">—</div>
+      <div class="cert-owner">Dueño del certificado</div>
+      <div class="info-card">
+        <div class="info-row"><span class="info-label">Diseño</span><span class="info-value" id="cert-diseno">—</span></div>
+        <div class="info-row"><span class="info-label">Talla</span><span class="info-value" id="cert-talla">—</span></div>
+        <div class="info-row"><span class="info-label">Serie</span><span class="info-value" id="cert-serie">—</span></div>
+      </div>
+      <button class="wa-btn" onclick="openWhatsApp()">
+        <i class="ti ti-brand-whatsapp" style="font-size:16px"></i>
+        Transferir certificado — \$100
+      </button>
+      <div class="wa-hint">Necesitarás tu código de transferencia</div>
+    </div>
   </div>
 </div>
 <script>
@@ -129,7 +130,6 @@ const VERCEL='https://certificados-nfc.vercel.app';
 const WA='524494802870';
 let currentUID=null,currentData=null,pendingName='',pendingCode='';
 function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active')}
-function getInitials(n){return n.split(' ').slice(0,2).map(w=>w[0]).join('').toUpperCase()}
 async function init(){
   const uid=new URLSearchParams(window.location.search).get('uid');
   if(!uid){show('screen-no-uid');return}
@@ -145,7 +145,6 @@ async function init(){
 }
 function populateCert(d){
   document.getElementById('cert-name').textContent=d.nombre||'—';
-  document.getElementById('cert-avatar').textContent=getInitials(d.nombre||'AU');
   document.getElementById('cert-diseno').textContent=d.diseño||'—';
   document.getElementById('cert-talla').textContent=d.talla||'—';
   document.getElementById('cert-serie').textContent=d.serie||'—';
@@ -158,19 +157,13 @@ async function registerCert(){
   if(!code1){alert('Crea un código de transferencia');return}
   if(code1!==code2){alert('Los códigos no coinciden');return}
   try{
-    const res=await fetch(VERCEL+'/api/verify',{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({uid:currentUID,nombre:name,codigo:code1})
-    });
+    const res=await fetch(VERCEL+'/api/verify',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({uid:currentUID,nombre:name,codigo:code1})});
     const data=await res.json();
     if(data.error==='Ya registrado'){alert('Esta prenda ya tiene un certificado registrado');return}
     pendingName=name;pendingCode=code1;
     document.getElementById('reveal-code').textContent=code1;
     show('screen-code-reveal');
-  }catch(e){
-    alert('Error al registrar, intenta de nuevo');
-  }
+  }catch(e){alert('Error al registrar, intenta de nuevo')}
 }
 function showCertificate(){
   if(currentData){currentData.nombre=pendingName;populateCert(currentData)}
