@@ -18,7 +18,7 @@ body{background:#000;display:flex;align-items:center;justify-content:center;min-
 .brand-name{font-family:'UnifrakturMaguntia',cursive;font-size:28px;color:#fff;letter-spacing:2px;text-align:center}
 .brand-sub{font-family:'Oswald',sans-serif;font-size:9px;color:#aaa;letter-spacing:5px;text-transform:uppercase;margin-top:4px;text-align:center}
 .divider{width:60%;height:0.5px;background:rgba(255,255,255,0.2);margin:14px auto}
-.shirt-wrap{width:260px;height:260px;display:flex;align-items:center;justify-content:center;margin:0 auto}
+.shirt-wrap{width:340px;height:340px;display:flex;align-items:center;justify-content:center;margin:0 auto}
 .shirt-img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 20px 50px rgba(0,0,0,0.9));animation:float 4s ease-in-out infinite}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
 .cert-badge{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:5px;text-transform:uppercase;color:#c8a96e;margin:16px 0 4px;text-align:center}
