@@ -11,9 +11,9 @@ export default function handler(req, res) {
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:#000;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:1rem}
-.wrap{width:100%;max-width:390px;min-height:100vh;position:relative;overflow:hidden;background:#1a1a1a}
-.bg-img{position:fixed;top:0;left:50%;transform:translateX(-50%);width:100%;max-width:390px;height:100%;object-fit:cover;opacity:0.85;z-index:0}
-.overlay{position:fixed;top:0;left:50%;transform:translateX(-50%);width:100%;max-width:390px;height:100%;background:linear-gradient(to bottom,rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.1) 30%,rgba(0,0,0,0.65) 55%,rgba(0,0,0,0.97) 75%);z-index:1}
+.wrap{width:100%;max-width:500px;min-height:100vh;position:relative;overflow:hidden;background:#1a1a1a}
+.bg-img{position:fixed;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0.85;z-index:0}
+.overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(to bottom,rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.1) 30%,rgba(0,0,0,0.65) 55%,rgba(0,0,0,0.97) 75%);z-index:1}
 .content{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;padding:32px 24px 40px}
 .brand-name{font-family:'UnifrakturMaguntia',cursive;font-size:28px;color:#fff;letter-spacing:2px;text-align:center}
 .brand-sub{font-family:'Oswald',sans-serif;font-size:9px;color:#aaa;letter-spacing:5px;text-transform:uppercase;margin-top:4px;text-align:center}
