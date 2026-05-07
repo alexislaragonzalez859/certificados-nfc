@@ -125,7 +125,7 @@ hr{border:none;border-top:1px solid #222;margin:1rem 0}
   </div>
 </div>
 <script>
-const VERCEL='https://certificados-1wnro6m4z-alexislaragonzalez859-8144s-projects.vercel.app';
+const VERCEL='https://certificados-nfc.vercel.app';
 const WA='524494802870';
 let currentUID=null,currentData=null,pendingName='',pendingCode='';
 function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active')}
