@@ -150,16 +150,27 @@ function populateCert(d){
   document.getElementById('cert-talla').textContent=d.talla||'—';
   document.getElementById('cert-serie').textContent=d.serie||'—';
 }
-function registerCert(){
+async function registerCert(){
   const name=document.getElementById('input-name').value.trim();
   const code1=document.getElementById('input-code1').value.trim();
   const code2=document.getElementById('input-code2').value.trim();
   if(!name){alert('Ingresa tu nombre');return}
   if(!code1){alert('Crea un código de transferencia');return}
   if(code1!==code2){alert('Los códigos no coinciden');return}
-  pendingName=name;pendingCode=code1;
-  document.getElementById('reveal-code').textContent=code1;
-  show('screen-code-reveal');
+  try{
+    const res=await fetch(VERCEL+'/api/verify',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({uid:currentUID,nombre:name,codigo:code1})
+    });
+    const data=await res.json();
+    if(data.error==='Ya registrado'){alert('Esta prenda ya tiene un certificado registrado');return}
+    pendingName=name;pendingCode=code1;
+    document.getElementById('reveal-code').textContent=code1;
+    show('screen-code-reveal');
+  }catch(e){
+    alert('Error al registrar, intenta de nuevo');
+  }
 }
 function showCertificate(){
   if(currentData){currentData.nombre=pendingName;populateCert(currentData)}
