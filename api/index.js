@@ -6,7 +6,7 @@ export default function handler(req, res) {
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Verificar Autenticidad — Autodoping</title>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Oswald:wght@300;400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -61,8 +61,7 @@ body{background:#000;min-height:100vh;display:flex;align-items:flex-start;justif
       <i class="ti ti-nfc" style="font-size:18px;color:#555" aria-hidden="true"></i>
     </div>
     <div class="brand-header">
-      <img class="brand-title-img" src="https://cdn.shopify.com/s/files/1/0969/7850/1923/files/Adobe_Express_-_file_1.png?v=1768082655" alt="Autodoping">
-      <div class="brand-sub">Verificación de autenticidad NFC</div>
+     <div style="font-family:'UnifrakturMaguntia',cursive;font-size:28px;color:#fff;letter-spacing:2px;text-align:center">Autodoping</div>
     </div>
     <div class="divider"></div>
 
