@@ -10,15 +10,20 @@ export default function handler(req, res) {
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:#000;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:1rem}
-.wrap{width:100%;max-width:500px;min-height:100vh;position:relative;overflow:hidden;background:#1a1a1a}
-.bg-img{position:fixed;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0.85;z-index:0}
-.overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(to bottom,rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.1) 30%,rgba(0,0,0,0.65) 55%,rgba(0,0,0,0.97) 75%);z-index:1}
-.content{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;padding:32px 24px 40px}
-.brand-name{font-family:'UnifrakturMaguntia',cursive;font-size:28px;color:#fff;letter-spacing:2px;text-align:center}
-.brand-sub{font-family:'Oswald',sans-serif;font-size:9px;color:#aaa;letter-spacing:5px;text-transform:uppercase;margin-top:4px;text-align:center}
-.divider{width:60%;height:0.5px;background:rgba(255,255,255,0.2);margin:14px auto}
-.shirt-wrap{width:340px;height:340px;display:flex;align-items:center;justify-content:center;margin:0 auto;padding-right:20px}
+body{background:#000;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:0}
+.wrap{width:100%;max-width:390px;min-height:100vh;position:relative;overflow:hidden;background:#1a1a1a}
+.bg-img{position:fixed;top:0;left:50%;transform:translateX(-50%);width:100%;max-width:390px;height:100%;object-fit:cover;opacity:0.85;z-index:0}
+.overlay{position:fixed;top:0;left:50%;transform:translateX(-50%);width:100%;max-width:390px;height:100%;background:linear-gradient(to bottom,rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.05) 25%,rgba(0,0,0,0.6) 55%,rgba(0,0,0,0.97) 72%);z-index:1}
+.content{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;padding:28px 24px 40px}
+.top-bar{width:100%;display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.shop-btn{font-family:'Oswald',sans-serif;font-size:10px;color:#888;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border:0.5px solid rgba(255,255,255,0.15);padding:6px 10px;border-radius:6px}
+.shop-btn:hover{color:#c8a96e;border-color:#c8a96e}
+.brand-header{display:flex;flex-direction:column;align-items:center}
+.brand-logo{width:52px;height:52px;object-fit:contain;margin-bottom:4px}
+.brand-name{font-family:'UnifrakturMaguntia',cursive;font-size:26px;color:#fff;letter-spacing:2px;text-align:center}
+.brand-sub{font-family:'Oswald',sans-serif;font-size:9px;color:#aaa;letter-spacing:5px;text-transform:uppercase;margin-top:2px;text-align:center}
+.divider{width:60%;height:0.5px;background:rgba(255,255,255,0.2);margin:12px auto}
+.shirt-wrap{width:300px;height:300px;display:flex;align-items:center;justify-content:center;margin:0 auto}
 .shirt-img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 20px 50px rgba(0,0,0,0.9));animation:float 4s ease-in-out infinite}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
 .cert-badge{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:5px;text-transform:uppercase;color:#c8a96e;margin:16px 0 4px;text-align:center}
@@ -50,8 +55,15 @@ body{background:#000;display:flex;align-items:center;justify-content:center;min-
   <img class="bg-img" src="https://cdn.shopify.com/s/files/1/0969/7850/1923/files/ChatGPT_Image_7_may_2026_02_05_58_p.m..png?v=1778183919" alt="">
   <div class="overlay"></div>
   <div class="content">
-    <div class="brand-name">Autodoping</div>
-    <div class="brand-sub">Verificación de autenticidad</div>
+    <div class="top-bar">
+      <a href="https://autodopingshop.myshopify.com/" class="shop-btn">← Ir a la tienda</a>
+      <i class="ti ti-nfc" style="font-size:18px;color:#444" aria-hidden="true"></i>
+    </div>
+    <div class="brand-header">
+      <img class="brand-logo" src="https://cdn.shopify.com/s/files/1/0969/7850/1923/files/Sin_titulo-1-1.png?v=1768079884" alt="Autodoping">
+      <div class="brand-name">Autodoping</div>
+      <div class="brand-sub">Verificación de autenticidad NFC</div>
+    </div>
     <div class="divider"></div>
 
     <div id="screen-loading" class="screen active" style="margin-top:2rem">
