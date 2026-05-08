@@ -6,7 +6,7 @@ export default function handler(req, res) {
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Verificar Autenticidad — Autodoping</title>
-<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Oswald:wght@300;400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=UnifrakturMaguntia&family=Oswald:wght@300;400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -23,7 +23,7 @@ body{background:#000;min-height:100vh;display:flex;align-items:flex-start;justif
 .brand-title-img{width:180px;height:100px;object-fit:contain;object-position:center;margin-top:-10px;mix-blend-mode:screen}
 .brand-sub{font-family:'Oswald',sans-serif;font-size:9px;color:#aaa;letter-spacing:5px;text-transform:uppercase;margin-top:4px;text-align:center}
 .divider{display:none}
-.shirt-wrap{width:340px;height:340px;display:flex;align-items:center;justify-content:center;margin:-60px auto -20px}
+.shirt-wrap{width:300px;height:300px;display:flex;align-items:center;justify-content:center;margin:8px auto 0}
 .shirt-img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 20px 50px rgba(0,0,0,0.9));animation:float 4s ease-in-out infinite}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
 .cert-badge{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:5px;text-transform:uppercase;color:#fff;margin:16px 0 4px;text-align:center}
@@ -61,7 +61,8 @@ body{background:#000;min-height:100vh;display:flex;align-items:flex-start;justif
       <i class="ti ti-nfc" style="font-size:18px;color:#555" aria-hidden="true"></i>
     </div>
     <div class="brand-header">
-     <div style="font-family:'UnifrakturMaguntia',cursive;font-size:28px;color:#fff;letter-spacing:2px;text-align:center">Autodoping</div>
+   <div style="font-family:'MedievalSharp',cursive;font-size:28px;color:#fff;letter-spacing:2px;text-align:center">Autodoping</div>
+<div style="font-family:'MedievalSharp',cursive;font-size:11px;color:#aaa;letter-spacing:3px;text-align:center;margin-top:4px">Verificación de Autenticidad</div>
     </div>
     <div class="divider"></div>
 
