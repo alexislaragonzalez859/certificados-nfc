@@ -6,27 +6,27 @@ export default function handler(req, res) {
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Verificar Autenticidad — Autodoping</title>
-<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Oswald:wght@300;400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:#000;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:0}
-.wrap{width:100%;max-width:390px;min-height:100vh;position:relative;overflow:hidden;background:#1a1a1a}
-.bg-img{position:fixed;top:0;left:50%;transform:translateX(-50%);width:100%;max-width:390px;height:100%;object-fit:cover;opacity:0.85;z-index:0}
-.overlay{position:fixed;top:0;left:50%;transform:translateX(-50%);width:100%;max-width:390px;height:100%;background:linear-gradient(to bottom,rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.05) 25%,rgba(0,0,0,0.6) 55%,rgba(0,0,0,0.97) 72%);z-index:1}
-.content{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;padding:28px 24px 40px}
-.top-bar{width:100%;display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
-.shop-btn{font-family:'Oswald',sans-serif;font-size:10px;color:#888;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border:0.5px solid rgba(255,255,255,0.15);padding:6px 10px;border-radius:6px}
-.shop-btn:hover{color:#c8a96e;border-color:#c8a96e}
+body{background:#000;min-height:100vh;display:flex;align-items:flex-start;justify-content:center}
+.wrap{width:100%;max-width:480px;min-height:100vh;position:relative;background:#1a1a1a}
+.bg-img{position:fixed;top:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;height:100%;object-fit:cover;opacity:0.85;z-index:0}
+.overlay{position:fixed;top:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;height:100%;background:linear-gradient(to bottom,rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.05) 25%,rgba(0,0,0,0.6) 55%,rgba(0,0,0,0.97) 72%);z-index:1}
+.content{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;padding:24px 24px 40px}
+.top-bar{width:100%;display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.shop-btn{font-family:'Oswald',sans-serif;font-size:10px;color:#fff;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border:0.5px solid rgba(255,255,255,0.3);padding:6px 12px;border-radius:6px}
+.shop-btn:hover{background:rgba(255,255,255,0.1)}
 .brand-header{display:flex;flex-direction:column;align-items:center}
-.brand-logo{width:52px;height:52px;object-fit:contain;margin-bottom:4px}
-.brand-name{font-family:'UnifrakturMaguntia',cursive;font-size:26px;color:#fff;letter-spacing:2px;text-align:center}
-.brand-sub{font-family:'Oswald',sans-serif;font-size:9px;color:#aaa;letter-spacing:5px;text-transform:uppercase;margin-top:2px;text-align:center}
+.brand-logo{width:52px;height:52px;object-fit:contain;margin-bottom:6px}
+.brand-title-img{width:200px;object-fit:contain}
+.brand-sub{font-family:'Oswald',sans-serif;font-size:9px;color:#aaa;letter-spacing:5px;text-transform:uppercase;margin-top:4px;text-align:center}
 .divider{width:60%;height:0.5px;background:rgba(255,255,255,0.2);margin:12px auto}
-.shirt-wrap{width:300px;height:300px;display:flex;align-items:center;justify-content:center;margin:0 auto}
+.shirt-wrap{width:320px;height:320px;display:flex;align-items:center;justify-content:center;margin:0 auto}
 .shirt-img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 20px 50px rgba(0,0,0,0.9));animation:float 4s ease-in-out infinite}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
-.cert-badge{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:5px;text-transform:uppercase;color:#c8a96e;margin:16px 0 4px;text-align:center}
+.cert-badge{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:5px;text-transform:uppercase;color:#fff;margin:16px 0 4px;text-align:center}
 .cert-name{font-family:'Oswald',sans-serif;font-size:20px;color:#fff;text-align:center;font-weight:400;letter-spacing:1px}
 .cert-owner{font-family:'Oswald',sans-serif;font-size:9px;color:#777;letter-spacing:3px;text-transform:uppercase;margin:4px 0 16px;text-align:center}
 .info-card{width:100%;background:rgba(0,0,0,0.55);border:0.5px solid rgba(255,255,255,0.1);border-radius:10px;padding:12px 18px;margin-bottom:14px}
@@ -34,18 +34,19 @@ body{background:#000;display:flex;align-items:center;justify-content:center;min-
 .info-row:last-child{border-bottom:none}
 .info-label{font-family:'Oswald',sans-serif;font-size:10px;color:#666;letter-spacing:2px;text-transform:uppercase}
 .info-value{font-family:'Oswald',sans-serif;font-size:13px;color:#ddd}
-.wa-btn{width:100%;padding:14px;background:#c8a96e;border:none;color:#000;font-family:'Oswald',sans-serif;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;border-radius:8px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px}
+.wa-btn{width:100%;padding:14px;background:#fff;border:none;color:#000;font-family:'Oswald',sans-serif;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;border-radius:8px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px}
+.wa-btn:hover{background:#ddd}
 .wa-hint{font-family:'Oswald',sans-serif;font-size:9px;color:#555;text-align:center;letter-spacing:1px;text-transform:uppercase;margin-top:8px}
 .screen{display:none}.screen.active{display:flex;flex-direction:column;align-items:center;width:100%}
 .form-group{width:100%;margin-bottom:12px}
 .form-label{font-family:'Oswald',sans-serif;font-size:10px;color:#888;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;display:block}
 .form-input{width:100%;background:rgba(0,0,0,0.6);border:0.5px solid rgba(255,255,255,0.15);border-radius:8px;padding:12px 14px;color:#fff;font-family:'Oswald',sans-serif;font-size:15px;outline:none}
-.form-input:focus{border-color:rgba(200,169,110,0.6)}
+.form-input:focus{border-color:rgba(255,255,255,0.4)}
 .form-hint{font-family:'Oswald',sans-serif;font-size:10px;color:#555;margin-top:4px;letter-spacing:1px}
-.btn{width:100%;padding:14px;border:0.5px solid #c8a96e;background:transparent;color:#c8a96e;font-family:'Oswald',sans-serif;font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;border-radius:8px;cursor:pointer;margin-top:4px}
-.btn:hover{background:#c8a96e;color:#000}
-.alert-box{width:100%;background:rgba(0,0,0,0.7);border:0.5px solid rgba(200,169,110,0.3);border-radius:12px;padding:1.5rem;text-align:center;margin-bottom:1rem}
-.alert-code{font-family:'Oswald',sans-serif;font-size:28px;font-weight:700;color:#c8a96e;letter-spacing:6px;background:rgba(0,0,0,0.5);border:1px dashed rgba(200,169,110,0.4);border-radius:8px;padding:1rem;margin:1rem 0}
+.btn{width:100%;padding:14px;border:0.5px solid #fff;background:transparent;color:#fff;font-family:'Oswald',sans-serif;font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;border-radius:8px;cursor:pointer;margin-top:4px}
+.btn:hover{background:#fff;color:#000}
+.alert-box{width:100%;background:rgba(0,0,0,0.7);border:0.5px solid rgba(255,255,255,0.2);border-radius:12px;padding:1.5rem;text-align:center;margin-bottom:1rem}
+.alert-code{font-family:'Oswald',sans-serif;font-size:28px;font-weight:700;color:#fff;letter-spacing:6px;background:rgba(0,0,0,0.5);border:1px dashed rgba(255,255,255,0.3);border-radius:8px;padding:1rem;margin:1rem 0}
 .status-card{width:100%;background:rgba(0,0,0,0.55);border:0.5px solid rgba(255,255,255,0.1);border-radius:12px;padding:1.5rem;text-align:center;margin-bottom:1rem}
 .no-uid-text{font-family:'Oswald',sans-serif;font-size:13px;color:#666;letter-spacing:2px;text-transform:uppercase;line-height:1.8;text-align:center;margin-top:1rem}
 </style>
@@ -57,11 +58,11 @@ body{background:#000;display:flex;align-items:center;justify-content:center;min-
   <div class="content">
     <div class="top-bar">
       <a href="https://autodopingshop.myshopify.com/" class="shop-btn">← Ir a la tienda</a>
-      <i class="ti ti-nfc" style="font-size:18px;color:#444" aria-hidden="true"></i>
+      <i class="ti ti-nfc" style="font-size:18px;color:#555" aria-hidden="true"></i>
     </div>
     <div class="brand-header">
-      <img class="brand-logo" src="https://cdn.shopify.com/s/files/1/0969/7850/1923/files/Sin_titulo-1-1.png?v=1768079884" alt="Autodoping">
-      <div class="brand-name">Autodoping</div>
+      <img class="brand-logo" src="https://cdn.shopify.com/s/files/1/0969/7850/1923/files/Sin_titulo-1-1.png?v=1768079884" alt="Logo Autodoping">
+      <img class="brand-title-img" src="https://cdn.shopify.com/s/files/1/0969/7850/1923/files/Adobe_Express_-_file_1.png?v=1768082655" alt="Autodoping">
       <div class="brand-sub">Verificación de autenticidad NFC</div>
     </div>
     <div class="divider"></div>
@@ -88,7 +89,7 @@ body{background:#000;display:flex;align-items:center;justify-content:center;min-
     <div id="screen-register" class="screen" style="width:100%">
       <div class="shirt-wrap"><img class="shirt-img" src="https://cdn.shopify.com/s/files/1/0969/7850/1923/files/preview-removebg-preview.png?v=1778184506" alt="Forever Together"></div>
       <div class="status-card" style="margin-top:1rem">
-        <i class="ti ti-shield-check" style="font-size:36px;color:#c8a96e"></i>
+        <i class="ti ti-shield-check" style="font-size:36px;color:#fff"></i>
         <p style="font-family:'Oswald',sans-serif;font-size:18px;font-weight:700;letter-spacing:2px;color:#fff;margin-top:8px">Prenda auténtica</p>
         <p style="font-family:'Oswald',sans-serif;font-size:10px;color:#888;letter-spacing:2px;text-transform:uppercase;margin-top:4px">Registra tu certificado</p>
       </div>
@@ -110,7 +111,7 @@ body{background:#000;display:flex;align-items:center;justify-content:center;min-
 
     <div id="screen-code-reveal" class="screen">
       <div class="alert-box" style="margin-top:1rem">
-        <i class="ti ti-alert-triangle" style="font-size:32px;color:#c8a96e"></i>
+        <i class="ti ti-alert-triangle" style="font-size:32px;color:#fff"></i>
         <p style="font-family:'Oswald',sans-serif;font-size:13px;color:#fff;letter-spacing:1px;text-transform:uppercase;margin-top:1rem;font-weight:700">Toma captura ahora</p>
         <p style="font-family:'Oswald',sans-serif;font-size:10px;color:#666;margin-top:0.5rem;letter-spacing:1px">Esta es la única vez que verás tu código</p>
         <div class="alert-code" id="reveal-code">———</div>
