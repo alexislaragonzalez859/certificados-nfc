@@ -87,7 +87,7 @@ body{background:#000;min-height:100vh;display:flex;align-items:flex-start;justif
     </div>
 
     <div id="screen-register" class="screen" style="width:100%">
-      <div class="shirt-wrap"><img class="shirt-img" src="https://cdn.shopify.com/s/files/1/0969/7850/1923/files/preview-removebg-preview.png?v=1778184506" alt="Forever Together"></div>
+      <div class="shirt-wrap"><img class="shirt-img" src="https://cdn.shopify.com/s/files/1/0969/7850/1923/files/https://cdn.shopify.com/s/files/1/0969/7850/1923/files/foto.png?v=1778202097" alt="Forever Together"></div>
       <div class="status-card" style="margin-top:1rem">
         <i class="ti ti-shield-check" style="font-size:36px;color:#fff"></i>
         <p style="font-family:'Oswald',sans-serif;font-size:18px;font-weight:700;letter-spacing:2px;color:#fff;margin-top:8px">Prenda auténtica</p>
@@ -121,7 +121,7 @@ body{background:#000;min-height:100vh;display:flex;align-items:flex-start;justif
     </div>
 
     <div id="screen-certified" class="screen">
-      <div class="shirt-wrap"><img class="shirt-img" src="https://cdn.shopify.com/s/files/1/0969/7850/1923/files/https://cdn.shopify.com/s/files/1/0969/7850/1923/files/preview-removebg-preview.png?v=1778184506" alt="Forever Together"></div>
+      <div class="shirt-wrap"><img class="shirt-img" src="https://cdn.shopify.com/s/files/1/0969/7850/1923/files/https://cdn.shopify.com/s/files/1/0969/7850/1923/files/https://cdn.shopify.com/s/files/1/0969/7850/1923/files/foto.png?v=1778202097" alt="Forever Together"></div>
       <div class="cert-badge">✦ Certificado ✦</div>
       <div class="cert-name" id="cert-name">—</div>
       <div class="cert-owner">Dueño del certificado</div>
