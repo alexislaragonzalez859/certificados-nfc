@@ -11,9 +11,9 @@ export default function handler(req, res) {
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:#000;min-height:100vh;display:flex;align-items:flex-start;justify-content:center}
-.wrap{width:100%;max-width:480px;min-height:100vh;position:relative;background:#1a1a1a}
-.bg-img{position:fixed;top:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;height:100%;object-fit:cover;opacity:0.85;z-index:0}
-.overlay{position:fixed;top:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;height:100%;background:linear-gradient(to bottom,rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.05) 25%,rgba(0,0,0,0.6) 55%,rgba(0,0,0,0.97) 72%);z-index:1}
+.wrap{width:100%;min-height:100vh;position:relative;background:#1a1a1a}
+.bg-img{position:fixed;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0.85;z-index:0}
+.overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(to bottom,rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.05) 25%,rgba(0,0,0,0.6) 55%,rgba(0,0,0,0.97) 72%);z-index:1}
 .content{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;padding:24px 24px 40px}
 .top-bar{width:100%;display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
 .shop-btn{font-family:'Oswald',sans-serif;font-size:10px;color:#fff;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border:0.5px solid rgba(255,255,255,0.3);padding:6px 12px;border-radius:6px}
@@ -61,7 +61,6 @@ body{background:#000;min-height:100vh;display:flex;align-items:flex-start;justif
       <i class="ti ti-nfc" style="font-size:18px;color:#555" aria-hidden="true"></i>
     </div>
     <div class="brand-header">
-      <img class="brand-logo" src="https://cdn.shopify.com/s/files/1/0969/7850/1923/files/Sin_titulo-1-1.png?v=1768079884" alt="Logo Autodoping">
       <img class="brand-title-img" src="https://cdn.shopify.com/s/files/1/0969/7850/1923/files/Adobe_Express_-_file_1.png?v=1768082655" alt="Autodoping">
       <div class="brand-sub">Verificación de autenticidad NFC</div>
     </div>
