@@ -22,8 +22,8 @@ body{background:#000;min-height:100vh;display:flex;align-items:flex-start;justif
 .brand-logo{width:52px;height:52px;object-fit:contain;margin-bottom:6px}
 .brand-title-img{width:130px;height:100px;object-fit:contain;object-position:center;margin-top:-10px;mix-blend-mode:screen}
 .brand-sub{font-family:'Oswald',sans-serif;font-size:9px;color:#aaa;letter-spacing:5px;text-transform:uppercase;margin-top:4px;text-align:center}
-.divider{width:60%;height:0.5px;background:rgba(255,255,255,0.2);margin:4px auto}
-.shirt-wrap{width:280px;height:280px;display:flex;align-items:center;justify-content:center;margin:-40px auto 0}
+.divider{display:none}
+.shirt-wrap{width:340px;height:340px;display:flex;align-items:center;justify-content:center;margin:-60px auto -20px}
 .shirt-img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 20px 50px rgba(0,0,0,0.9));animation:float 4s ease-in-out infinite}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
 .cert-badge{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:5px;text-transform:uppercase;color:#fff;margin:16px 0 4px;text-align:center}
