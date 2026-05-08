@@ -121,7 +121,7 @@ body{background:#000;min-height:100vh;display:flex;align-items:flex-start;justif
     </div>
 
     <div id="screen-certified" class="screen">
-      <div class="shirt-wrap"><img class="shirt-img" src="https://cdn.shopify.com/s/files/1/0969/7850/1923/files/preview-removebg-preview.png?v=1778184506" alt="Forever Together"></div>
+      <div class="shirt-wrap"><img class="shirt-img" src="https://cdn.shopify.com/s/files/1/0969/7850/1923/files/https://cdn.shopify.com/s/files/1/0969/7850/1923/files/ChatGPT_Image_7_may_2026__06_48_20_p.m.-removebg-preview.png?v=1778200904" alt="Forever Together"></div>
       <div class="cert-badge">✦ Certificado ✦</div>
       <div class="cert-name" id="cert-name">—</div>
       <div class="cert-owner">Dueño del certificado</div>
