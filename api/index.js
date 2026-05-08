@@ -14,15 +14,15 @@ body{background:#000;min-height:100vh;display:flex;align-items:flex-start;justif
 .wrap{width:100%;min-height:100vh;position:relative;background:#1a1a1a}
 .bg-img{position:fixed;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0.85;z-index:0}
 .overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(to bottom,rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.05) 25%,rgba(0,0,0,0.6) 55%,rgba(0,0,0,0.97) 72%);z-index:1}
-.content{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;padding:24px 24px 40px}
+.content{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;padding:16px 24px 40px}
 .top-bar{width:100%;display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
 .shop-btn{font-family:'Oswald',sans-serif;font-size:10px;color:#fff;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border:0.5px solid rgba(255,255,255,0.3);padding:6px 12px;border-radius:6px}
 .shop-btn:hover{background:rgba(255,255,255,0.1)}
-.brand-header{display:flex;flex-direction:column;align-items:center}
+.brand-header{display:flex;flex-direction:column;align-items:center;gap:0px}
 .brand-logo{width:52px;height:52px;object-fit:contain;margin-bottom:6px}
 .brand-title-img{width:160px;object-fit:contain}
 .brand-sub{font-family:'Oswald',sans-serif;font-size:9px;color:#aaa;letter-spacing:5px;text-transform:uppercase;margin-top:4px;text-align:center}
-.divider{width:60%;height:0.5px;background:rgba(255,255,255,0.2);margin:6px auto}
+.divider{width:60%;height:0.5px;background:rgba(255,255,255,0.2);margin:4px auto}
 .shirt-wrap{width:280px;height:280px;display:flex;align-items:center;justify-content:center;margin:0 auto}
 .shirt-img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 20px 50px rgba(0,0,0,0.9));animation:float 4s ease-in-out infinite}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
