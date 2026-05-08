@@ -6,7 +6,8 @@ export default function handler(req, res) {
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Verificar Autenticidad — Autodoping</title>
-<link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=UnifrakturMaguntia&family=Oswald:wght@300;400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Oswald:wght@300;400;700&display=swap" rel="stylesheet">
+<style>@font-face{font-family:'IcelandWinterstorm';src:url('https://cdn.shopify.com/s/files/1/0969/7850/1923/files/IcelandWinterstorm_PERSONAL_USE_ONLY.otf?v=1778200942');}</style>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -61,8 +62,8 @@ body{background:#000;min-height:100vh;display:flex;align-items:flex-start;justif
       <i class="ti ti-nfc" style="font-size:18px;color:#555" aria-hidden="true"></i>
     </div>
     <div class="brand-header">
-   <div style="font-family:'MedievalSharp',cursive;font-size:28px;color:#fff;letter-spacing:2px;text-align:center">Autodoping</div>
-<div style="font-family:'MedievalSharp',cursive;font-size:11px;color:#aaa;letter-spacing:3px;text-align:center;margin-top:4px">Verificación de Autenticidad</div>
+<div style="font-family:'IcelandWinterstorm',cursive;font-size:28px;color:#fff;letter-spacing:2px;text-align:center">Autodoping</div>
+<div style="font-family:'IcelandWinterstorm',cursive;font-size:11px;color:#aaa;letter-spacing:3px;text-align:center;margin-top:4px">Verificación de Autenticidad</div>
     </div>
     <div class="divider"></div>
 
@@ -86,7 +87,7 @@ body{background:#000;min-height:100vh;display:flex;align-items:flex-start;justif
     </div>
 
     <div id="screen-register" class="screen" style="width:100%">
-      <div class="shirt-wrap"><img class="shirt-img" src="https://cdn.shopify.com/s/files/1/0969/7850/1923/files/preview-removebg-preview.png?v=1778184506" alt="Forever Together"></div>
+      <div class="shirt-wrap"><img class="shirt-img" src="https://cdn.shopify.com/s/files/1/0969/7850/1923/files/ChatGPT_Image_7_may_2026__06_48_20_p.m.-removebg-preview.png?v=1778200904" alt="Forever Together"></div>
       <div class="status-card" style="margin-top:1rem">
         <i class="ti ti-shield-check" style="font-size:36px;color:#fff"></i>
         <p style="font-family:'Oswald',sans-serif;font-size:18px;font-weight:700;letter-spacing:2px;color:#fff;margin-top:8px">Prenda auténtica</p>
